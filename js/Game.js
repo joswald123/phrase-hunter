@@ -56,11 +56,14 @@ class Game {
     * @return {boolean} True if game has been won, false if game wasn't won
     */
     checkForWin() {
-        const showClassList = document.getElementsByClassName("show");
-        console.log(showClassList)
+
+        if(phrase.checkLetter(this.activePhrase)){
+            return true
+        } else {
+            return false
+        }
         
-        let letters = this.activePhrase.split(" ")
-        console.log(letters)
+    
         // if(this.activePhrase === ){
         //     return true;
         // } else {
@@ -76,8 +79,13 @@ class Game {
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-
-
+        const hearts = document.querySelectorAll(".tries img");
+        hearts[this.missed].setAttribute("src", "images/lostHeart.png")
+        this.missed += 1
+        console.log(this.missed)
+        if( this.missed >= 5) {
+            console.log("Game over")
+        }
     }
     
     /**

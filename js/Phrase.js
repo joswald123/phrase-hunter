@@ -41,9 +41,6 @@ class Phrase {
    */
   showMatchedLetter(letter) {
       const showLi = document.getElementsByClassName(letter);
-      const showClassList = document.getElementsByClassName("show");
-      console.log(showClassList)
-
       for(let i = 0; i < showLi.length; i++){
         showLi[i].className = `show letter ${letter}`
       }
