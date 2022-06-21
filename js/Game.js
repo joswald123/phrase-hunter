@@ -15,9 +15,9 @@ class Game {
     */
 
     createPhrases() {
-        const phrases = [new Phrase("The greatest glory in living lies not in never falling, but in rising every time we fall"),
-                         new Phrase("Life is what happens when you're busy making other plans"),
-                         new Phrase("Tell me and I forget. Teach me and I remember. Involve me and I learn")
+        const phrases = [new Phrase("Hello world"),
+                         new Phrase("Life is great"),
+                         new Phrase("Everything is fine")
                         ];
       
         return phrases;
@@ -56,21 +56,15 @@ class Game {
     * @return {boolean} True if game has been won, false if game wasn't won
     */
     checkForWin() {
-
-        if(phrase.checkLetter(this.activePhrase)){
+        let showList = document.querySelectorAll(".show")
+        let newPhrase = this.activePhrase.phrase.replace(/\s+/g, '')
+        //console.log(newPhrase.length)
+        //console.log(showList.length)
+        if(showList.length === newPhrase.length){
             return true
         } else {
             return false
         }
-        
-    
-        // if(this.activePhrase === ){
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-
-
     }
 
     /**
