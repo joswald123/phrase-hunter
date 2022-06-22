@@ -3,36 +3,35 @@
  * app.js */
 
 const game = new Game();
-//const phrase = new Phrase()
-
-// game.phrases.forEach((phrase, index) => {
-//     console.log(`Phrase ${index} - phrase ${phrase.phrase}`)
-// })
-
-// const logPhrase = (phrase) => {
-//     console.log(`Phrase - phrase: `, phrase.phrase);
-// };
-
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-//console.log(`Phrase - phrase: ${phrase.phrase}`)
-
-// const randomPhrase = game.getRandomPhrase();
-// const phrase = new Phrase(randomPhrase.phrase);
-// phrase.addPhraseToDisplay();
-// game.getRandomPhrase().addPhraseToDisplay();
-
-// game.startGame();
-
-
-
 const startButton = document.querySelector("#btn__reset");
-
-startButton.addEventListener("click", function(){
-    game.startGame();  
-
+const keyButtons = document.querySelectorAll('.key');
     
-});
+startButton.addEventListener("click", function(){
+   game.startGame();
+   game.resetGame();
+    // const ul = document.querySelector("#phrase ul");
+    // const hearts = document.querySelectorAll(".tries img");
+    // ul.innerHTML = "";
+    // const buttons = document.querySelectorAll(".key");
+    // console.log(buttons)
+    // buttons.disabled = false;
+    // buttons.forEach(btn => btn.className = 'key')
+    // hearts.forEach(heart => heart.src = 'images/liveHeart.png')
+    
+}); 
+
+// const clicking = function() { 
+//    game.handleInteraction(this);
+   
+// }
+
+//keyButtons.forEach(btn => btn.addEventListener("click", clicking));
+
+keyButtons.forEach(btn => btn.addEventListener("click", function() {
+    game.handleInteraction(this);
+}));
+
+
+
+
+

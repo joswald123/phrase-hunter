@@ -38,7 +38,6 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
-        
         const screenOverlay = document.querySelector("#overlay")
         
         screenOverlay.style.display = "none";
@@ -47,8 +46,37 @@ class Game {
         phrase.addPhraseToDisplay(this.activePhrase);
     }
 
-    handleInteraction() {
+    resetGame () {
+        const ul = document.querySelector("#phrase ul");
+        const hearts = document.querySelectorAll(".tries img");
+        ul.innerHTML = "";
+        const buttons = document.querySelectorAll(".key");
+        console.log(buttons)
+        buttons.disabled = false;
+        buttons.forEach(btn => btn.className = 'key')
+        hearts.forEach(heart => heart.src = 'images/liveHeart.png')
 
+    }
+
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(btn) {
+        btn.disabled = true;
+        const phrase = new Phrase(this.activePhrase.phrase);
+        if(phrase.checkLetter(btn.innerText)){
+            btn.className = "chosen";
+            phrase.showMatchedLetter(btn.innerText);
+            if(this.checkForWin()){
+                this.gameOver(true)
+            }
+            
+        } else {
+            btn.className = "wrong";
+            this.removeLife()
+        }
+    
     }
 
     /**
@@ -62,9 +90,9 @@ class Game {
         //console.log(showList.length)
         if(showList.length === newPhrase.length){
             return true
-        } else {
-            return false
         }
+        return false
+        
     }
 
     /**
@@ -76,9 +104,8 @@ class Game {
         const hearts = document.querySelectorAll(".tries img");
         hearts[this.missed].setAttribute("src", "images/lostHeart.png")
         this.missed += 1
-        console.log(this.missed)
         if( this.missed >= 5) {
-            console.log("Game over")
+            this.gameOver(false);
         }
     }
     
@@ -86,7 +113,21 @@ class Game {
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
     */
-    gameOver() {
+    gameOver(gameWon) {
+        const screenOverlay = document.querySelector("#overlay")
+        const message = document.querySelector("#game-over-message")
 
+        if(gameWon){
+            screenOverlay.style.display = "";
+            screenOverlay.className = "win";
+            message.innerHTML = "Great job!"
+            
+        } else {
+            screenOverlay.style.display = "";
+            screenOverlay.className = "lose";
+            message.innerHTML = "Sorry, better luck next time!"
+        
+        }
+        
     }
 }

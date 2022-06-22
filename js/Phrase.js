@@ -3,10 +3,13 @@
  * Phrase.js */
 
 class Phrase {
+
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
 
+
+  
   addPhraseToDisplay() {
     let displayPhrase = document.querySelector("#phrase ul");
     let htmlPhrase = "";
@@ -18,7 +21,6 @@ class Phrase {
         htmlPhrase += `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
       }
     }
-
     return (displayPhrase.innerHTML = htmlPhrase);
   }
 
@@ -28,11 +30,10 @@ class Phrase {
    */
   checkLetter(letter) {
     if(this.phrase.includes(letter)){
-      return true;
-      
-    }else{
-      return false; 
+      return true;  
     }
+    return false; 
+  
   }
 
   /**
@@ -45,9 +46,6 @@ class Phrase {
         showLi[i].className = `show letter ${letter}`
       }
 
-      // li.forEach(element => {
-      //   element.className = `show letter ${letter}`
-      // });
-      
+      //showLi.from(showLi).forEach(element => element.className = `show letter ${letter}`);
   }
 }
