@@ -46,15 +46,18 @@ class Game {
         phrase.addPhraseToDisplay(this.activePhrase);
     }
 
+    /**
+    * Reset the game initializing the buttons, images & phrase
+    */
     resetGame () {
         const ul = document.querySelector("#phrase ul");
         const hearts = document.querySelectorAll(".tries img");
         ul.innerHTML = "";
-        const buttons = document.querySelectorAll(".key");
-        console.log(buttons)
-        buttons.disabled = false;
-        buttons.forEach(btn => btn.className = 'key')
+        const buttons = document.querySelectorAll(".keyrow button");
+        buttons.forEach(btn => btn.disabled = false);
+        buttons.forEach(btn => btn.setAttribute('class', 'key'))
         hearts.forEach(heart => heart.src = 'images/liveHeart.png')
+        this.missed = 0;
 
     }
 
