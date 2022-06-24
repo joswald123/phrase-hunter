@@ -1,4 +1,4 @@
-# phrase-hunter
+# Phrase hunter Game
 
 JavaScript | HTML | CSS
 
@@ -6,6 +6,7 @@ JavaScript | HTML | CSS
 
 Interactive word guessing game app. Using JavaScript & OOP (Object-Oriented Programming) to select a random, hidden phrase, 
 which a player tries to guess, by clicking letters on an onscreen keyboard.
+Added a style that dynamically changes the color of the home page title and gives it a transition effect (more details in app.js)
 
 ![Page Screen](/images/homePage.png)
 
