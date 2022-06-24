@@ -60,10 +60,10 @@ function onTime() {
   
   count++;
   if(count % 2 === 0){
-    span.style.color = "ivory";
+    span.style.color = "mediumOrchid";
     span.style.transition = "all 3s"; 
   } else {
-    span.style.color = "floralWhite";
+    span.style.color = "pink";
   }
   if (count === splitTitle.length) {
     complete();
