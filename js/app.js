@@ -59,12 +59,6 @@ function onTime() {
   span.classList.add("fade");
   
   count++;
-  if(count % 2 === 0){
-    span.style.color = "mediumOrchid";
-    span.style.transition = "all 3s"; 
-  } else {
-    span.style.color = "pink";
-  }
   if (count === splitTitle.length) {
     complete();
     return;
